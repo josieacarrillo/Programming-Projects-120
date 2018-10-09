@@ -41,6 +41,22 @@ error - incorrect copying
 incorrect:   result[i++] = array[i];
 fix:   result[i] = array[i];
 explanation: result array should be copying the values at the same index as the array
+
+error- unnecessary line
+incorrect: for (int i = 0; i < result.length - 1; ++i) {
+fix: -
+explanation:only need one loop to go through the elements in the array
+
+error- boundary is cut short
+incorrect:for (int j = 0; i < result.length - i - 1; j++) {
+fix: for (int j = 0; i < result.length; j++) {
+explanation: should loop through all elements in the array in order to arrange it correctly & it should say j, not i
+
+
+error- the temp variable is the same placed back into as the same value
+incorrect:   int temp = result[j]
+fix:   int temp = result[j+1];
+explanantion: the variable to be index j +1 to get the next value in the array to swicth if necesarry
  */
 
 public class FunWithIntArrays {
@@ -128,14 +144,14 @@ public class FunWithIntArrays {
 
     int[] result = arrayCopy(array);
 
-    for (int i = 0; i < result.length - 1; ++i) {
-      for (int j = 0; i < result.length - i - 1; j++) {
+
+      for (int j = 0; j < result.length; j++) {
         if (result[j] > result[j + 1]) {
           //swapping result[j] and result[j+1]
-          int temp = result[j];
+          int temp = result[j+1];
           result[j + 1] = result[j];
           result[j] = temp;
-        }
+
       }
     }
     return result;
