@@ -57,6 +57,11 @@ error- the temp variable is the same placed back into as the same value
 incorrect:   int temp = result[j]
 fix:   int temp = result[j+1];
 explanantion: the variable to be index j +1 to get the next value in the array to swicth if necesarry
+
+error- return statement on void
+incorrect:return;
+correct:-
+explnantion: void methods do not return a value
  */
 
 public class FunWithIntArrays {
@@ -64,7 +69,7 @@ public class FunWithIntArrays {
   // output the elements of the input array
   public static void printArray(int[] array) {
     if (array != null)
-      return;
+
 
     for (int i = 0; i < array.length; i++) {
       System.out.print(array[i] + ", ");
