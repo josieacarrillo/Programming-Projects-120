@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 
 /** Your header comment goes here.
- * Be sure to include your name, cse account name, and the date 
+ * Be sure to include your name, cse account name, and the date
  * */
 public class Caesar {
 
@@ -15,6 +15,13 @@ public class Caesar {
  }
 
  public static String encrypt(String message, int rotation) {
+   StringBuilder newMessage = new StringBuilder(message.length);
+   for ( int i = 0; i < message.length; i ++){
+
+     if(message.charAt(i) >= A && message.charAt(i) <= Z || message.charAt(i) >= a && message.charAt(i) <= z){
+       char
+     }
+   }
   return "";
  }
 
@@ -25,7 +32,7 @@ public class Caesar {
  public static String encryptTwo(String message, int rotation) {
   return "";
  }
- 
+
  public static String decryptTwo(String message, int rotation) {
   return "";
  }
