@@ -34,6 +34,20 @@ public class Caesar {
  }
 
  public static String decrypt(String message, int rotation) {
+   StringBuilder newMessage = new StringBuilder(message.length());
+   for ( int i = 0; i < message.length(); i ++){
+
+     if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
+       char newChar = message.charAt(i);
+       newChar = (char) (newChar - rotation);
+       newMessage.append(newChar);
+       //add on the letter to the newstring
+         }
+        else {
+         newMessage.append(message.charAt(i));
+         //add the number to the new message string
+       }
+     }
   return "";
  }
 
