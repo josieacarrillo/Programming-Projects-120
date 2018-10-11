@@ -15,11 +15,16 @@ public class Caesar {
  }
 
  public static String encrypt(String message, int rotation) {
-   StringBuilder newMessage = new StringBuilder(message.length);
-   for ( int i = 0; i < message.length; i ++){
+   StringBuilder newMessage = new StringBuilder(message.length());
+   for ( int i = 0; i < message.length(); i ++){
 
-     if(message.charAt(i) >= A && message.charAt(i) <= Z || message.charAt(i) >= a && message.charAt(i) <= z){
-       char
+     if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
+       char newChar = message.charAt(i) - rotation;
+       //add on the letter to the newstring
+
+       else {
+         //add the number to the new message string
+       }
      }
    }
   return "";
