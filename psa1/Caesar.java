@@ -11,7 +11,14 @@ import java.util.*;
 public class Caesar {
 
  public static char letterOperation(char letter, int rotation) {
-  return '0';
+   if (letter >='A' && letter <= 'Z' || letter >= 'a' && letter <= 'z'){
+     letter = (char) (letter + rotation);
+
+   }
+   else{
+     return letter;
+   }
+  return letter;
  }
 
  public static String encrypt(String message, int rotation) {
@@ -21,16 +28,16 @@ public class Caesar {
      if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
        char newChar = message.charAt(i);
        newChar = (char) (newChar + rotation);
-       newMessage.append(newChar);
+       newMessage = newMessage + newChar;
        //add on the letter to the newstring
          }
         else {
-         newMessage.append(message.charAt(i));
+         newMessage = newMessage + message.charAt(i);
          //add the number to the new message string
        }
      }
 
-  return "";
+  return newMessage;
  }
 
  public static String decrypt(String message, int rotation) {
@@ -40,19 +47,19 @@ public class Caesar {
      if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
        char newChar = message.charAt(i);
        newChar = (char) (newChar - rotation);
-       newMessage.append(newChar);
+       newMessage= newMessage+newChar;
        //add on the letter to the newstring
          }
         else {
-         newMessage.append(message.charAt(i));
+         newMessage= newMessage+ message.charAt(i);
          //add the number to the new message string
        }
      }
-  return "";
- }
+  return newMessage;
+}
 
  public static String encryptTwo(String message, int rotation) {
-   StringBuilder newMessage = new String(message.length());
+   StringBuilder newMessage = new StringBuilder(message.length());
    for ( int i = 0; i < message.length(); i ++){
 
      if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
