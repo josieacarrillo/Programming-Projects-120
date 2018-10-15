@@ -107,7 +107,7 @@ public class Caesar {
      char ch = message.charAt(i);
 
      if(Character.isLetter(ch)){
-        char c = (char)(ch + rotation);//(ch + (26 - rotation));
+        char c = (char)(ch - rotation);//(ch + (26 - rotation));
        newMessage.append(c);
 
        //add on the letter to the newstring
