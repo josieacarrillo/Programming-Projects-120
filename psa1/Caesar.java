@@ -23,22 +23,22 @@ public class Caesar {
 
  public static String encrypt(String message, int rotation) {
    String newMessage = "";
-   if(shift > 26){
-     shift = shift%26;
+   if(rotation > 26){
+     rotation = rotation%26;
    }
-   if(shift < 0){
-     shift = (shift%26) + 26;
+   if(rotation < 0){
+     rotation = (rotation%26) + 26;
    }
    for ( int i = 0; i < message.length(); i ++){
 
      if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-       char newChar = message.charAt(i);
-       ch = (char) (ch + rotation);
-       newMessage += + ch;
+       char ch = message.charAt(i);
+       char c = (char) (ch - (26-rotation));
+       newMessage += c;
        //add on the letter to the newstring
          }
         else {
-         newMessage += ch;
+         newMessage += message.charAt(i);
          //add the number to the new message string
        }
      }
