@@ -85,7 +85,7 @@ public class CaesarTester {
           newMessage.append(ch);
         }
       }
-   return message ;
+     return newMessage.toString();
   }
 
   public static String decryptTwo(String message, int rotation) {
@@ -111,7 +111,7 @@ public class CaesarTester {
           //add the number to the new message string
         }
       }
-   return message;
+     return newMessage.toString();
   }
 
   public static void main(String[] args){
