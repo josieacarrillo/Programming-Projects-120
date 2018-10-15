@@ -4,26 +4,8 @@ import java.util.*;
 public class CaesarTester {
 
 
-  public static String encrypt(String message, int rotation) {
-    String newMessage = new String();
-    for ( int i = 0; i < message.length(); i ++){
-
-      if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-        char newChar = message.charAt(i);
-        newChar = (char) (newChar + rotation);
-        newMessage = newMessage + newChar;
-        //add on the letter to the newstring
-          }
-         else {
-          newMessage = newMessage + message.charAt(i);
-          //add the number to the new message string
-        }
-      }
-
-   return newMessage;
-  }
   public static char letterOperation(char letter, int rotation) {
-    if (letter >='A' && letter <= 'Z' || letter >= 'a' && letter <= 'z'){
+    if (Character.isLetter(letter)){
       letter = (char) (letter + rotation);
 
     }
@@ -31,6 +13,31 @@ public class CaesarTester {
       return letter;
     }
    return letter;
+  }
+
+  public static String encrypt(String message, int rotation) {
+    String newMessage = "";
+    if(rotation > 26){
+      rotation = rotation%26;
+    }
+    if(rotation < 0){
+      rotation = (rotation%26) + 26;
+    }
+    for ( int i = 0; i < message.length(); i ++){
+      char ch = message.charAt(i);
+      if(Character.isLetter(ch)){
+
+        char c = (char) (ch + rotation);//(ch - (26-rotation));
+        newMessage += c;
+        //add on the letter to the newstring
+          }
+         else {
+          newMessage += ch;
+          //add the number to the new message string
+        }
+      }
+
+   return newMessage;
   }
 
   public static String decrypt(String message, int rotation) {
@@ -42,20 +49,70 @@ public class CaesarTester {
       rotation = (rotation%26) + 26;
     }
     for ( int i = 0; i < message.length(); i ++){
+      char ch = message.charAt(i);
+      if(Character.isLetter(ch)){
 
-      if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-        char ch = message.charAt(i);
-        char c = (char) (ch + (26-rotation));
+        char c = (char) (ch - rotation);//(ch + (26-rotation));
         newMessage += c;
         //add on the letter to the newstring
           }
          else {
-          newMessage += message.charAt(i);
+          newMessage += ch;
           //add the number to the new message string
         }
       }
    return newMessage;
  }
+
+  public static String encryptTwo(String message, int rotation) {
+    if(rotation > 26){
+      rotation = rotation%26;
+    }
+    if(rotation < 0){
+      rotation = (rotation%26) + 26;
+    }
+    StringBuilder newMessage = new StringBuilder();
+    for ( int i = 0; i < message.length(); i ++){
+      char ch = message.charAt(i);
+
+      if(Character.isLetter(ch)){
+        char c = (char) (ch + rotation);//(ch - (26 - rotation));
+        newMessage.append(c);
+
+        //add on the letter to the newstring
+          }
+         else {
+          newMessage.append(ch);
+        }
+      }
+   return message ;
+  }
+
+  public static String decryptTwo(String message, int rotation) {
+    if(rotation > 26){
+      rotation = rotation%26;
+    }
+    if(rotation < 0){
+      rotation = (rotation%26) + 26;
+    }
+
+    StringBuilder newMessage = new StringBuilder();
+    for ( int i = 0; i < message.length(); i ++){
+      char ch = message.charAt(i);
+
+      if(Character.isLetter(ch)){
+         char c = (char)(ch + rotation);//(ch + (26 - rotation));
+        newMessage.append(c);
+
+        //add on the letter to the newstring
+          }
+         else {
+          newMessage.append(ch);
+          //add the number to the new message string
+        }
+      }
+   return message;
+  }
 
   public static void main(String[] args){
     String str1 = new String("wow18");
@@ -121,7 +178,7 @@ public class CaesarTester {
     }
     else {
      System.out.println(" Test Failed!!!!!!!!!!");
-     System.out.println(str2);
+     System.out.println(str4);
    }
 
     if ( str2.equals("tmt18") ){
