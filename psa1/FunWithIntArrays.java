@@ -32,7 +32,7 @@ incorrect :   min = i;
 fix: min = array[i];
 explanation: the error was counting i as the min when it should the be the value in the array at index i
 
-error- boundary error
+error- off by one error
 incorrect:   for (int i = 0; i <= array.length; i++)
 fix:   for (int i = 0; i < array.length; i++)
 explanantion: i will go out of bounds because there isnt a value at array.length
@@ -150,7 +150,7 @@ public class FunWithIntArrays {
     int[] result = arrayCopy(array);
 
 
-      for (int j = 0; j < result.length; j++) {
+      for (int j = 0; j < result.length-1; j++) {
         if (result[j] > result[j + 1]) {
           //swapping result[j] and result[j+1]
           int temp = result[j+1];
@@ -162,7 +162,12 @@ public class FunWithIntArrays {
     return result;
   }
   public static void main(String[] args) {
-    int[] arr = {1,2,3,4,5};
-    findAvg(arr);
+    int[] arr = {1,3,2,4,5};
+    double avg = findAvg(arr);
+    int[] sort = arraySort(arr);
+    printArray(sort);
+    // arraySort(arr);
+
+
   }
 }
