@@ -31,7 +31,7 @@ public class Caesar {
    }
    for ( int i = 0; i < message.length(); i ++){
 
-     if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
+     if(message.charAt(i).isletter()){
        char ch = message.charAt(i);
        char c = (char) (ch - (26-rotation));
        newMessage += c;
@@ -47,17 +47,23 @@ public class Caesar {
  }
 
  public static String decrypt(String message, int rotation) {
-   String newMessage = new String();
+   String newMessage = "";
+   if(rotation > 26){
+     rotation = rotation%26;
+   }
+   if(rotation < 0){
+     rotation = (rotation%26) + 26;
+   }
    for ( int i = 0; i < message.length(); i ++){
 
-     if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-       char newChar = message.charAt(i);
-       newChar = (char) (newChar - rotation);
-       newMessage= newMessage+newChar;
+     if(message.charAt(i).isletter()){
+       char ch = message.charAt(i);
+       char c = (char) (ch + (26-rotation));
+       newMessage += c;
        //add on the letter to the newstring
          }
         else {
-         newMessage= newMessage+ message.charAt(i);
+         newMessage += message.charAt(i);
          //add the number to the new message string
        }
      }
@@ -65,34 +71,33 @@ public class Caesar {
 }
 
  public static String encryptTwo(String message, int rotation) {
-   StringBuilder newMessage = new StringBuilder(message.length());
-   for ( int i = 0; i < message.length(); i ++){
 
-     if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-       char newChar = message.charAt(i);
-       newChar = (char) (newChar + rotation);
-       newMessage.append(newChar);
+   for ( int i = 0; i < message.length(); i ++){
+     char newChar = message.charAt(i);
+     if(newChar.isletter()){
+       message.append(newChar);
+
        //add on the letter to the newstring
          }
         else {
-         newMessage.append(message.charAt(i));
+         message.append(newChar));
        }
      }
-  return "";
+  return ;
  }
 
  public static String decryptTwo(String message, int rotation) {
    StringBuilder newMessage = new StringBuilder(message.length());
    for ( int i = 0; i < message.length(); i ++){
+     char ch = message.charAt(i);
 
-     if(message.charAt(i) >= 'A' && message.charAt(i) <= 'Z' || message.charAt(i) >= 'a' && message.charAt(i) <= 'z'){
-       char newChar = message.charAt(i);
-       newChar = (char) (newChar - rotation);
-       newMessage.append(newChar);
+     if(ch.isletter()){
+
+
        //add on the letter to the newstring
          }
         else {
-         newMessage.append(message.charAt(i));
+         message.append(ch);
          //add the number to the new message string
        }
      }
