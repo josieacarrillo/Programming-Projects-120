@@ -3,6 +3,7 @@ import java.util.*;
 
 public class CaesarTester {
 
+
   public static String encrypt(String message, int rotation) {
     String newMessage = new String();
     for ( int i = 0; i < message.length(); i ++){
@@ -107,6 +108,41 @@ public class CaesarTester {
       System.out.println("newLetter="+ newLetter);
     }
 
+
+    System.out.println();
+    System.out.println("Test #4");
+
+    String str4 = encryptTwo(str1, 2);
+
+
+    if( (str4.equals("yqy18")) ){
+      System.out.println("String is encrypted");
+      System.out.println("Test Passed!! Encrypt method works.");
+    }
+    else {
+     System.out.println(" Test Failed!!!!!!!!!!");
+     System.out.println(str2);
+   }
+
+    if ( str2.equals("tmt18") ){
+      System.out.println("rotation must be in opp direction! go back to encrypt method to check how rotation is implemented");
+      System.out.println("Test Failed!!!!");
+    }
+
+
+    System.out.println();
+    System.out.println("Test #5");
+
+    String str5 = decryptTwo(str2,2);
+
+    if( (str5.equals(str1))){
+      System.out.println("Test Passed!! Decrypt method works.");
+    }
+
+    else{
+      System.out.println("Test Failed");
+      System.out.println(str3);
+    }
 }
 
 }
