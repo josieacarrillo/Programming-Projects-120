@@ -11,7 +11,7 @@ import java.util.*;
 public class Caesar {
 
  public static char letterOperation(char letter, int rotation) {
-   if (letter >='A' && letter <= 'Z' || letter >= 'a' && letter <= 'z'){
+   if (Character.isLetter(letter)){
      letter = (char) (letter + rotation);
 
    }
@@ -30,15 +30,15 @@ public class Caesar {
      rotation = (rotation%26) + 26;
    }
    for ( int i = 0; i < message.length(); i ++){
+     char ch = message.charAt(i);
+     if(Character.isLetter(ch)){
 
-     if(message.charAt(i).isletter()){
-       char ch = message.charAt(i);
-       char c = (char) (ch - (26-rotation));
+       char c = (char) (ch + rotation);//(ch - (26-rotation));
        newMessage += c;
        //add on the letter to the newstring
          }
         else {
-         newMessage += message.charAt(i);
+         newMessage += ch;
          //add the number to the new message string
        }
      }
@@ -55,15 +55,15 @@ public class Caesar {
      rotation = (rotation%26) + 26;
    }
    for ( int i = 0; i < message.length(); i ++){
+     char ch = message.charAt(i);
+     if(Character.isLetter(ch)){
 
-     if(message.charAt(i).isletter()){
-       char ch = message.charAt(i);
-       char c = (char) (ch + (26-rotation));
+       char c = (char) (ch - rotation);//(ch + (26-rotation));
        newMessage += c;
        //add on the letter to the newstring
          }
         else {
-         newMessage += message.charAt(i);
+         newMessage += ch;
          //add the number to the new message string
        }
      }
@@ -71,28 +71,43 @@ public class Caesar {
 }
 
  public static String encryptTwo(String message, int rotation) {
-
+   if(rotation > 26){
+     rotation = rotation%26;
+   }
+   if(rotation < 0){
+     rotation = (rotation%26) + 26;
+   }
+   StringBuilder newMessage = new Stringbuilder(message.length());
    for ( int i = 0; i < message.length(); i ++){
-     char newChar = message.charAt(i);
-     if(newChar.isletter()){
-       message.append(newChar);
+     char ch = message.charAt(i);
+
+     if(Character.isLetter(ch)){
+       char c = (char) (ch + rotation);//(ch - (26 - rotation));
+       message.append(c);
 
        //add on the letter to the newstring
          }
         else {
-         message.append(newChar));
+         message.append(ch);
        }
      }
-  return ;
+  return message ;
  }
 
  public static String decryptTwo(String message, int rotation) {
-   StringBuilder newMessage = new StringBuilder(message.length());
+   if(rotation > 26){
+     rotation = rotation%26;
+   }
+   if(rotation < 0){
+     rotation = (rotation%26) + 26;
+   }
+
    for ( int i = 0; i < message.length(); i ++){
      char ch = message.charAt(i);
 
-     if(ch.isletter()){
-
+     if(Character.isLetter(ch)){
+        char c = (char)(ch + shift);//(ch + (26 - rotation));
+       message.append(c);
 
        //add on the letter to the newstring
          }
@@ -101,7 +116,7 @@ public class Caesar {
          //add the number to the new message string
        }
      }
-  return "";
+  return message;
  }
 
 }
