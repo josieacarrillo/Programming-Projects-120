@@ -77,18 +77,18 @@ public class Caesar {
    if(rotation < 0){
      rotation = (rotation%26) + 26;
    }
-   StringBuilder newMessage = new Stringbuilder(message.length());
+   StringBuilder newMessage = new StringBuilder();
    for ( int i = 0; i < message.length(); i ++){
      char ch = message.charAt(i);
 
      if(Character.isLetter(ch)){
        char c = (char) (ch + rotation);//(ch - (26 - rotation));
-       message.append(c);
+       newMessage.append(c);
 
        //add on the letter to the newstring
          }
         else {
-         message.append(ch);
+         newMessage.append(ch);
        }
      }
   return message ;
@@ -102,17 +102,18 @@ public class Caesar {
      rotation = (rotation%26) + 26;
    }
 
+   StringBuilder newMessage = new StringBuilder();
    for ( int i = 0; i < message.length(); i ++){
      char ch = message.charAt(i);
 
      if(Character.isLetter(ch)){
-        char c = (char)(ch + shift);//(ch + (26 - rotation));
-       message.append(c);
+        char c = (char)(ch + rotation);//(ch + (26 - rotation));
+       newMessage.append(c);
 
        //add on the letter to the newstring
          }
         else {
-         message.append(ch);
+         newMessage.append(ch);
          //add the number to the new message string
        }
      }
