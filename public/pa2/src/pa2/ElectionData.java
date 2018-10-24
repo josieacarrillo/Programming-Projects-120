@@ -1,6 +1,17 @@
 package pa2;
 import java.util.*;
+import java.io.IOException;
+
 public class ElectionData {
+	public void parseElectionFile(String filename) throws IOException{
+		
+	
+	}
+	
+	private void parseLine(String Line){
+		
+	}
+	
 	
 	public static void printMenu(){
 		System.out.println("What would you like to know?"+ " "+ "Enter the number corresponding to your choice.");
@@ -16,36 +27,19 @@ public class ElectionData {
 	public static void runLoop(){
 		Scanner input = new Scanner(System.in);
 		String choice = "";
+		
+	do{
 		printMenu();
 		choice = input.nextLine();
-		if(choice.equals("0")){
-			System.out.println("Goodbye");
-		}
-		if(choice.equals("1")){
-			System.out.println("You have entered number 1");
-		}
-		if(choice.equals("2")){
-			System.out.println("You have entered number 2");
-		}
-		if(choice.equals("3")){
-			System.out.println("You have entered number 3");
-		}
-		if(choice.equals("4")){
-			System.out.println("You have entered number 4");
-		}
-		if(choice.equals("5")){
-			System.out.println("TROLOLOLOLOLOL!!!!!");
-		}
-	  if (!choice.equals("0")&& !choice.equals("1")&& !choice.equals("2")&& !choice.equals("3")&&!choice.equals("4")&&!choice.equals("5")){
-			System.out.println("You entered an invalid choice.  Please try again");
-			printMenu();
-			
-			
-			
-		}
-			
-		}
-		
+		System.out.println("You have entered an invalid choice. Please try again");
+	}
+	while( !choice.equals("1")&& !choice.equals("2")&& !choice.equals("3")&& !choice.equals("4")&& !choice.equals("5")&& !choice.equals("0"));
+	
+	if(choice.equals("1")){
+		System.out.println("You have entered 1");
+	}
+	
+	}
 		
 	
 	public static void main(String[] args){
