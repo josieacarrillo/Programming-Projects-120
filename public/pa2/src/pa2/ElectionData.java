@@ -28,21 +28,23 @@ public class ElectionData {
 		Scanner input = new Scanner(System.in);
 		String choice = "";
 		
-	do{
-		printMenu();
-		choice = input.nextLine();
-		System.out.println("You have entered an invalid choice. Please try again");
-	}
-	while( !choice.equals("1")&& !choice.equals("2")&& !choice.equals("3")&& !choice.equals("4")&& !choice.equals("5")&& !choice.equals("0"));
-	
-	if(choice.equals("1")){
-		System.out.println("You have entered 1");
-	}
-	
-	}
-		
+while(!choice.equals("1") && !choice.equals("2")&& !choice.equals("3")&& !choice.equals("4")&& !choice.equals("5")){
+	printMenu();
+	choice = input.nextLine();
+	System.out.println("You have entered an invalid choice. Please try again");
+}
+ while(choice.equals("1")){
+	 
+	 System.out.println("You have entered one!");
+	 choice = input.nextLine();
+ }
+}
 	
 	public static void main(String[] args){
 		runLoop();
+		
+		
+	
+		
 	}
 }
