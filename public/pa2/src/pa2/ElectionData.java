@@ -1,6 +1,8 @@
 package pa2;
 import java.util.*;
+import java.io.File;
 import java.io.IOException;
+
 
 public class ElectionData {
 	public void parseElectionFile(String filename) throws IOException{
@@ -8,9 +10,14 @@ public class ElectionData {
 	
 	}
 	
-	private void parseLine(String Line){
+	/* private void parseLine(String line){
+		Scanner dataScanner = new Scanner(new File(filename));
+		while (dataScanner.hasNextLine()==true){
+			String nextLine = dataScanner.nextLine();
+			nextLine.split(",");
+		}
 		
-	}
+	}*/
 	
 	
 	public static void printMenu(){
@@ -30,13 +37,29 @@ public class ElectionData {
 		
 while(!choice.equals("1") && !choice.equals("2")&& !choice.equals("3")&& !choice.equals("4")&& !choice.equals("5")){
 	printMenu();
+	
 	choice = input.nextLine();
-	System.out.println("You have entered an invalid choice. Please try again");
 }
  while(choice.equals("1")){
-	 
-	 System.out.println("You have entered one!");
+	
+	 System.out.println("You have entered: " + choice);
 	 choice = input.nextLine();
+ }
+ while(choice.equals("2")){
+	 System.out.println("You have entered: "+ choice);
+	 choice = input.nextLine();
+ }
+ while (choice.equals("3")){
+	 System.out.println("You have entered: "+ choice);
+	 choice = input.nextLine();
+ }
+ while (choice.equals("4")){
+	 System.out.print("You have entered: "+ choice);
+	 choice = input.nextLine();
+ }
+ while (choice.equals("5")){
+	 System.out.println("TROLOLOLOL");
+	 choice= input.nextLine();
  }
 }
 	
