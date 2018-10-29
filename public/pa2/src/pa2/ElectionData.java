@@ -10,14 +10,14 @@ public class ElectionData {
 	
 	}
 	
-	/* private void parseLine(String line){
+	private void parseLine(String line){
 		Scanner dataScanner = new Scanner(new File(filename));
-		while (dataScanner.hasNextLine()==true){
-			String nextLine = dataScanner.nextLine();
-			nextLine.split(",");
+		while (dataScanner.hasNextLine()){
+			 line = dataScanner.nextLine();
+			 String[] results = line.split(",");
 		}
 		
-	}*/
+	}
 	
 	
 	public static void printMenu(){
