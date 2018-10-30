@@ -5,6 +5,8 @@ import java.io.IOException;
 
 
 public class ElectionData {
+	ArrayList<CountyElectionResult> countyResults2012;
+	ArrayList<CountyElectionResult> countyResults2016;
 	public void parseElectionFile(String filename) throws IOException{
 		
 	
@@ -12,6 +14,8 @@ public class ElectionData {
 	
 	private void parseLine(String line){
 		Scanner dataScanner = new Scanner(new File(filename));
+		this.countyResults2012 = newArrayList<CountyElectionResult>;
+		
 		while (dataScanner.hasNextLine()){
 			 line = dataScanner.nextLine();
 			 String[] results = line.split(",");
