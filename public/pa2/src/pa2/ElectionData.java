@@ -14,7 +14,11 @@ public class ElectionData {
 	
 	private void parseLine(String line){
 		Scanner dataScanner = new Scanner(new File(filename));
-		this.countyResults2012 = newArrayList<CountyElectionResult>;
+		List<List<String>>County2012 = new ArrayList<List<String>>();
+		List<String>CountyElectionResults2012 = new ArrayList<String>();
+		
+		List<List<String>>County2016 = new ArrayList<List<String>>();
+		List<String>CountyElectionResults2016 = new ArrayList<String>();
 		
 		while (dataScanner.hasNextLine()){
 			 line = dataScanner.nextLine();
