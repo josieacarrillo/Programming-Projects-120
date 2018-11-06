@@ -8,13 +8,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ElectionData {
+	
 	ArrayList<CountyElectionResult> countyResults2012;
+	ArrayList<CountyElectionResult> getCountyResults2012;
+	//return countyResults2012;
+	ArrayList<CountyElectionResult> countyResults2016;
+	ArrayList<CountyElectionResult> getCountyResults2016;
+	public ElectionData(){
+		countyResults2012 = new ArrayList<CountyElectionResult>();
+		countyResults2016 = new ArrayList<CountyElectionResult>();
+		
+	}
+	
 	public void parseElectionFile(String filename) throws IOException{
 		
 		Scanner dataScanner = new Scanner(new File(filename));
 		while (dataScanner.hasNextLine()){
-			 line = dataScanner.nextLine();
+			// line = dataScanner.nextLine();
 	}
+		
 	
 	private void parseLine(String line){
 	
@@ -27,9 +39,9 @@ public class ElectionData {
 		
 			 String[] results = line.split(",");
 			 
-				 if(results[0])
+				 
 			 }
-		}
+		
 		
 	}
 	
@@ -81,6 +93,7 @@ while(!choice.equals("0")&& !choice.equals("1") && !choice.equals("2")&& !choice
 	 System.out.println("Goodbye");
 	 choice = input.nextLine();
  }
+ input.close();
 }
 	
 	public static void main(String[] args){
