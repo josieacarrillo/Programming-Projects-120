@@ -2,27 +2,33 @@ package pa2;
 import java.util.*;
 import java.io.File;
 import java.io.IOException;
-
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ElectionData {
 	ArrayList<CountyElectionResult> countyResults2012;
-	ArrayList<CountyElectionResult> countyResults2016;
 	public void parseElectionFile(String filename) throws IOException{
 		
-	
+		Scanner dataScanner = new Scanner(new File(filename));
+		while (dataScanner.hasNextLine()){
+			 line = dataScanner.nextLine();
 	}
 	
 	private void parseLine(String line){
-		Scanner dataScanner = new Scanner(new File(filename));
+	
 		List<List<String>>County2012 = new ArrayList<List<String>>();
 		List<String>CountyElectionResults2012 = new ArrayList<String>();
 		
 		List<List<String>>County2016 = new ArrayList<List<String>>();
 		List<String>CountyElectionResults2016 = new ArrayList<String>();
 		
-		while (dataScanner.hasNextLine()){
-			 line = dataScanner.nextLine();
+		
 			 String[] results = line.split(",");
+			 
+				 if(results[0])
+			 }
 		}
 		
 	}
