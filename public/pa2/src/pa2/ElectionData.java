@@ -21,26 +21,37 @@ public class ElectionData {
 	}
 	
 	public void parseElectionFile(String filename) throws IOException{
-		
-		Scanner dataScanner = new Scanner(new File(filename));
+		File allData = new File(filename);
+		Scanner dataScanner = new Scanner(allData);
 		while (dataScanner.hasNextLine()){
-			// line = dataScanner.nextLine();
+			String line = dataScanner.nextLine();
+			
 	}
 		
 	
 	private void parseLine(String line){
 	
-		List<List<String>>County2012 = new ArrayList<List<String>>();
-		List<String>CountyElectionResults2012 = new ArrayList<String>();
+		ArrayList<ArrayList<String>>County2012 = new ArrayList<ArrayList<String>>();
+		ArrayList<String>CountyElectionResults2012 = new ArrayList<String>();
 		
-		List<List<String>>County2016 = new ArrayList<List<String>>();
-		List<String>CountyElectionResults2016 = new ArrayList<String>();
+		ArrayList<ArrayList<String>>County2016 = new ArrayList<ArrayList<String>>();
+		ArrayList<String>CountyElectionResults2016 = new ArrayList<String>();
 		
 		
 			 String[] results = line.split(",");
 			 
+				 CountyElectionResults2012.add(results[5]);
+				 CountyElectionResults2012.add(results[6]);
+				 CountyElectionResults2012.add(results[7]);
+				 
+				 CountyElectionResults2016.add(results[8]);
+				 CountyElectionResults2016.add(results[9]);
+				 CountyElectionResults2016.add(results[10]);
+					 
 				 
 			 }
+				 
+			 
 		
 		
 	}
