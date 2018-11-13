@@ -17,20 +17,28 @@ public class ElectionData {
 	public ElectionData(){
 		countyResults2012 = new ArrayList<CountyElectionResult>();
 		countyResults2016 = new ArrayList<CountyElectionResult>();
+		stateResults2012 = new ArrayList<StateElectionResult>();
+		stateResults2016 = new ArrayList<StateElectionResult>();
 		
 	}
 	
 	public void parseElectionFile(String filename) throws IOException{
 		File allData = new File(filename);
 		Scanner dataScanner = new Scanner(allData);
+		ArrayList<String> fileArr = new ArrayList<String>();
+		
 		while (dataScanner.hasNextLine()){
-			String line = dataScanner.nextLine();
+			fileArr.add(dataScanner.nextLine());
 			
 	}
-		
+		for (int i = 0; i < fileArr.size(); i++){
+			parseLine(fileArr.get(i));
+		}
+	readFile.close();
+
+	}
 	
-	private void parseLine(String line){
-	
+	private void parseLine(String line) {
 		ArrayList<ArrayList<String>>County2012 = new ArrayList<ArrayList<String>>();
 		ArrayList<String>CountyElectionResults2012 = new ArrayList<String>();
 		
@@ -40,6 +48,7 @@ public class ElectionData {
 		
 			 String[] results = line.split(",");
 			 
+			 	String state = results[0];
 				 CountyElectionResults2012.add(results[5]);
 				 CountyElectionResults2012.add(results[6]);
 				 CountyElectionResults2012.add(results[7]);
@@ -47,16 +56,16 @@ public class ElectionData {
 				 CountyElectionResults2016.add(results[8]);
 				 CountyElectionResults2016.add(results[9]);
 				 CountyElectionResults2016.add(results[10]);
-					 
+				 
+					
 				 
 			 }
 				 
 			 
 		
 		
-	}
 	
-	
+
 	public static void printMenu(){
 		System.out.println("What would you like to know?"+ " "+ "Enter the number corresponding to your choice.");
 		System.out.println("	"+"1"+"  	" + "Most lopsided county between dem and rep (param: year)");
@@ -65,7 +74,7 @@ public class ElectionData {
 		System.out.println("        "+ "4"+" 	"+"Which states switched party affiliation between 2012 and 2016");
 		System.out.println("        "+"5"+ "       "+ "How many licks does it it take to get to the center of a tootsie pop");
 		System.out.println("        " + "0"+ "       "+ "Quit");
-		
+		System.out.println("Enter your choice");
 	}
 	
 
