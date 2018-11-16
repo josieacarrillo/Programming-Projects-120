@@ -34,29 +34,26 @@ public class ElectionData {
 		for (int i = 0; i < fileArr.size(); i++){
 			parseLine(fileArr.get(i));
 		}
-	readFile.close();
+	dataScanner.close();
 
 	}
 	
 	private void parseLine(String line) {
-		ArrayList<ArrayList<String>>County2012 = new ArrayList<ArrayList<String>>();
-		ArrayList<String>CountyElectionResults2012 = new ArrayList<String>();
-		
-		ArrayList<ArrayList<String>>County2016 = new ArrayList<ArrayList<String>>();
-		ArrayList<String>CountyElectionResults2016 = new ArrayList<String>();
+		CountyElectionResult result2012 = new CountyElectionResult("","","","",0,0,0);
+		CountyElectionResult result2016 = new CountyElectionResult("","","","",0,0,0);
 		
 		
 			 String[] results = line.split(",");
 			 
-			 	String state = results[0];
-				 CountyElectionResults2012.add(results[5]);
-				 CountyElectionResults2012.add(results[6]);
-				 CountyElectionResults2012.add(results[7]);
+			 result2012.setState(results[0]);
+				result2012.setCounty(results[1]);
+				result2012.setFips(results[2]);
+				result2012.setYear("2012");
 				 
-				 CountyElectionResults2016.add(results[8]);
-				 CountyElectionResults2016.add(results[9]);
-				 CountyElectionResults2016.add(results[10]);
-				 
+				result2016.setState(lineInfo[0]);
+				result2016.setCounty(lineInfo[1]);
+				result2016.setFips(lineInfo[2]);
+				result2016.setYear("2016");
 					
 				 
 			 }
