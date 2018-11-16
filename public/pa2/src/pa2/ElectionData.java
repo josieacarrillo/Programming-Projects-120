@@ -50,9 +50,9 @@ public class ElectionData {
 				result2012.setFips(results[2]);
 				result2012.setYear("2012");
 				 
-				result2016.setState(lineInfo[0]);
-				result2016.setCounty(lineInfo[1]);
-				result2016.setFips(lineInfo[2]);
+				result2016.setState(results[0]);
+				result2016.setCounty(results[1]);
+				result2016.setFips(results[2]);
 				result2016.setYear("2016");
 					
 				 
@@ -115,7 +115,25 @@ while(!choice.equals("0")&& !choice.equals("1") && !choice.equals("2")&& !choice
 	
 	public static void main(String[] args){
 		
+		if (args.length < 1) {
+			System.out.println("No data file passed in");
+			return;
+		}
 		
+		ElectionData data = new ElectionData();
+		
+		try {
+			data.parseElectionFile(args[0]);
+		}
+		catch (IOException e) {
+			System.out.println("There was a problem with the data file");
+			e.printStackTrace();
+			return;
+		}
+		
+		data.runLoop();
+		
+	}
 	
 		
 	}
