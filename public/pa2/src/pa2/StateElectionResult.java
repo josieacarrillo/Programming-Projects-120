@@ -1,6 +1,6 @@
 package pa2;
 
-public class StateElectionResult {
+
 	/* File: StateElectionResult.java
 	 * 
 	 * The purpose of this file is to define a class to hold the election
